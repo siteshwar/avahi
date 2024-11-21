@@ -367,7 +367,8 @@ AC_FUNC_SELECT_ARGTYPES
 # whether libc's malloc does too. (Same for realloc.)
 #AC_FUNC_MALLOC
 #AC_FUNC_REALLOC
-AC_CHECK_FUNCS([gethostname memchr memmove memset mkdir select socket strchr strcspn strdup strerror strrchr strspn strstr uname setresuid setreuid setresgid setregid strcasecmp gettimeofday putenv strncasecmp strlcpy gethostbyname seteuid setegid setproctitle getprogname])
+AC_CHECK_FUNCS([gethostname memchr memmove memset mkdir select socket strchr strcspn strdup strerror strrchr strspn strstr uname setresuid setreuid setresgid setregid strcasecmp gettimeofday putenv strncasecmp strlcpy gethostbyname seteuid setegid setproctitle getprogname getrandom])
+AC_CHECK_HEADERS([sys/random.h])
 
 AC_FUNC_CHOWN
 AC_FUNC_STAT
@@ -419,9 +420,6 @@ AC_SUBST([GETTEXT_PACKAGE])
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],["$GETTEXT_PACKAGE"],[Gettext package])
 AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
-
-avahilocaledir='${prefix}/${DATADIRNAME}/locale'
-AC_SUBST(avahilocaledir)
 
 # Check for pkg-config manually first, as if its not installed the
 # PKG_PROG_PKG_CONFIG macro won't be defined.
